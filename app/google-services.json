@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "739071967792",
+    "firebase_url": "https://protalk-8e47a.firebaseio.com",
+    "project_id": "protalk-8e47a",
+    "storage_bucket": "protalk-8e47a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739071967792:android:d68c41a23e8e2602",
+        "android_client_info": {
+          "package_name": "com.example.mrmohammad.protalk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "739071967792-47ngieie6qi5mkqqavfbdipvgl0sh1v2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mrmohammad.protalk",
+            "certificate_hash": "6bc7dacf300c746abab928ee1e57b0be5b1cee8a"
+          }
+        },
+        {
+          "client_id": "739071967792-sdl99lcce14sa5becjvn909h4fukl2l6.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "739071967792-sdl99lcce14sa5becjvn909h4fukl2l6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGlahcV5oYJSEKuIUsg7dXPmjP1wLPB3U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "739071967792-sdl99lcce14sa5becjvn909h4fukl2l6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

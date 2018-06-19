@@ -30,7 +30,10 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <ListView android:id="@+id/myList"
+    <ListView
+        android:layout_above="@id/input_layout"
+        android:layout_below="@id/my_toolbar"
+        android:id="@+id/myList"
         android:layout_height="match_parent"
         android:layout_width="match_parent"/>
 
