@@ -19,7 +19,7 @@
 
 
     <LinearLayout
-        android:layout_marginTop="75dp"
+
 
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -31,8 +31,8 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/circle_img"
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_margin="20dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
@@ -65,10 +65,11 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18dp"
         android:textStyle="bold"
-        android:text="ONLINE"
+        android:text="Hi, I am using ProTalkApp"
          />
 
         <Button
+            android:textAllCaps="false"
             android:layout_marginTop="15dp"
             android:background="@drawable/button_rounded_initial"
             android:layout_gravity="center"
@@ -78,46 +79,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+        <Button
+            android:textAllCaps="false"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/button_rounded_initial"
+            android:layout_gravity="center"
+            android:padding="15dp"
+            android:text="Edit Status"
+            android:id="@+id/edit_status_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+
 
 </LinearLayout>
 
 
-            <RadioGroup
 
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:id="@+id/radio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="15dp"
-                >
-
-                <TextView
-                    android:text="Status"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorDarkTransparent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <RadioButton
-                    android:id="@+id/radio_online"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="Online"
-
-                    android:textColor="@color/colorPrimaryDark" />
-
-                <RadioButton
-                    android:id="@+id/radio_busy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Busy"
-                    android:textColor="@color/colorPrimaryDark" />
-            </RadioGroup>
 
 
 

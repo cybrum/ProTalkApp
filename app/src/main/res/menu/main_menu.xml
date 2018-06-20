@@ -3,16 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:title="Settings"
-        android:id="@+id/settings_btn"
+        android:id="@+id/menu_settings_btn"
         app:showAsAction="never"/>
 
     <item android:title="Profile"
-        android:id="@+id/profile_btn"
+        android:id="@+id/menu_profile_btn"
+        app:showAsAction="never"/>
+
+    <item android:title="All Users"
+        android:id="@+id/menu_all_users_btn"
         app:showAsAction="never"/>
 
 
+
     <item android:title="Logout"
-        android:id="@+id/logout_btn"
+        android:id="@+id/menu_logout_btn"
         app:showAsAction="never"/>
 
 </menu>

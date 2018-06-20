@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Register extends AppCompatActivity{
+public class RegisterActivity extends AppCompatActivity{
     Toolbar appBar;
     EditText regName, regEmail, regPassword;
     Button createAccountBtn;
@@ -92,18 +92,18 @@ public class Register extends AppCompatActivity{
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
 
-                                String currentUserId = mAuth.getCurrentUser().getUid();
-                                storeUserDataReference = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserId);
+                                String user_id = mAuth.getCurrentUser().getUid();
+                                storeUserDataReference = FirebaseDatabase.getInstance().getReference().child("User").child(user_id);
 
                                 storeUserDataReference.child("user_name").setValue(name);
-                                storeUserDataReference.child("user_status").setValue("Online");
+                                storeUserDataReference.child("user_status").setValue("Hey, I'm using ProTalk");
                                 storeUserDataReference.child("image").setValue("default_profile_image");
                                 storeUserDataReference.child("thumbnail").setValue("default_thumbnail")
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful()){
-                                                    Intent registerIntent = new Intent(Register.this, MainActivity.class);
+                                                    Intent registerIntent = new Intent(RegisterActivity.this, MainActivity.class);
                                                     registerIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                     startActivity(registerIntent);
                                                     finish();
@@ -113,7 +113,7 @@ public class Register extends AppCompatActivity{
 
 
                             }else{
-                                Toast.makeText(Register.this, "Error creating account.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "Error creating account.", Toast.LENGTH_SHORT).show();
                             }
 
                             loading.dismiss();

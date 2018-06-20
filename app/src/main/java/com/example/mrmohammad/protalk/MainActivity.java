@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void logOutUser() {
 
-        Intent mainIntent = new Intent(MainActivity.this, Login.class);
+        Intent mainIntent = new Intent(MainActivity.this, LoginActivity.class);
         mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mainIntent);
     }
@@ -82,17 +82,20 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         switch(id){
-            case R.id.logout_btn:
+            case R.id.menu_logout_btn:
                 mAuth.signOut();
                 logOutUser();
                 break;
 
-            case R.id.profile_btn:
+            case R.id.menu_profile_btn:
                 startActivity(new Intent(MainActivity.this, ProfileActivity.class));
                 break;
-            case R.id.settings_btn:
+            case R.id.menu_settings_btn:
                 startActivity(new Intent(MainActivity.this, SettingsActivity.class));
                 break;
+
+            case R .id.menu_all_users_btn:
+                startActivity(new Intent(MainActivity.this, AllUsersActivity.class));
                 default:
                     Log.e(TAG, "ERROR with MenuItem..");
         }

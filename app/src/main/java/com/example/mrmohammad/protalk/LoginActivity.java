@@ -21,7 +21,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     Button loginBtn, registreBtn;
     Toolbar appbar;
@@ -52,7 +52,7 @@ public class Login extends AppCompatActivity {
         registreBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Login.this, Register.class));
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
 
@@ -93,12 +93,12 @@ public class Login extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
                             if(task.isSuccessful()){
-                                Intent loginIntent = new Intent(Login.this, MainActivity.class);
+                                Intent loginIntent = new Intent(LoginActivity.this, MainActivity.class);
                                 loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(loginIntent);
                                 finish();
                             }else{
-                                Toast.makeText(Login.this, "Please try again", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Please try again", Toast.LENGTH_SHORT).show();
                             }
                             loading.dismiss();
                         }

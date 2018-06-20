@@ -26,6 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -34,16 +35,12 @@ public class ProfileActivity extends AppCompatActivity{
 
     Toolbar appBar;
 
-    public static final String TAG = ProfileActivity.class.getSimpleName();
     CircleImageView circleImageView;
     TextView displayName;
     TextView tvStatus;
-    RadioGroup radio;
-    RadioButton radioOnline, radioBusy;
     DatabaseReference getUserDataReference;
     FirebaseAuth mAuth;
-    Button addImg;
-    String status;
+    Button addImg, editStatus;
     public static final int IMAGE_PICK = 1;
     StorageReference storageProfileImageRef;
 
@@ -59,48 +56,28 @@ public class ProfileActivity extends AppCompatActivity{
         circleImageView = findViewById(R.id.circle_img);
         displayName = findViewById(R.id.tv_display_name);
         tvStatus = findViewById(R.id.tv_status);
-        radio = findViewById(R.id.radio);
-        radioOnline = findViewById(R.id.radio_online);
-        radioBusy = findViewById(R.id.radio_busy);
+        editStatus = findViewById(R.id.edit_status_btn);
         mAuth = FirebaseAuth.getInstance();
-        String online_user_id= mAuth.getCurrentUser().getUid();
-        getUserDataReference = FirebaseDatabase.getInstance().getReference().child("Users").child(online_user_id);
+        String user_id= mAuth.getCurrentUser().getUid();
+        getUserDataReference = FirebaseDatabase.getInstance().getReference().child("User").child(user_id);
         storageProfileImageRef = FirebaseStorage.getInstance().getReference().child("Profile_Images");
 
-        radio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-
-
-                switch(checkedId){
-                    case R.id.radio_online:
-                        status = "ONLINE";
-                        getUserDataReference.push().child("user_status").setValue(status);
-                        tvStatus.setText("ONLINE");
 
 
 
-                        break;
-                    case R.id.radio_busy:
-                        status = "BUSY";
-                        getUserDataReference.push().child("user_status").setValue(status);
-                        tvStatus.setText("BUSY");
-                        break;
-                    default:
-                        Log.d(TAG, "Error with status...");
-                }
-            }
-        });
 
         getUserDataReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 String name = dataSnapshot.child("user_name").getValue().toString().trim();
+                String status = dataSnapshot.child("user_status").getValue().toString().trim();
                 String image = dataSnapshot.child("image").getValue().toString().trim();
                 String thumbnail =dataSnapshot.child("thumbnail").getValue().toString().trim();
 
                 displayName.setText(name);
+                tvStatus.setText(status);
+                Picasso.get().load(image).into(circleImageView);
 
 
 
@@ -120,6 +97,19 @@ public class ProfileActivity extends AppCompatActivity{
                 imageIntent.setAction(Intent.ACTION_GET_CONTENT);
                 imageIntent.setType("image/*");
                 startActivityForResult(imageIntent, IMAGE_PICK);
+
+            }
+        });
+
+        editStatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String prevStatus = tvStatus.getText().toString().trim();
+
+                Intent profileIntent = new Intent(ProfileActivity.this, EditStatusActivity.class);
+                profileIntent.putExtra("status", prevStatus);
+                startActivity(profileIntent);
 
             }
         });
@@ -157,6 +147,17 @@ public class ProfileActivity extends AppCompatActivity{
                     public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(ProfileActivity.this, "Saving image to Database.", Toast.LENGTH_LONG).show();
+
+                            String downloadUrl = task.getResult().getDownloadUrl().toString().trim();
+                            getUserDataReference.child("image").setValue(downloadUrl)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            Toast.makeText(ProfileActivity.this, "Image Uploaded", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
+
                         }else{
                             Toast.makeText(ProfileActivity.this, "Error saving image....", Toast.LENGTH_LONG).show();
                         }
