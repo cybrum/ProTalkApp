@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:title="Settings"
-        android:id="@+id/menu_settings_btn"
+    <item android:title="Information"
+        android:id="@+id/menu_info_btn"
         app:showAsAction="never"/>
 
     <item android:title="Profile"

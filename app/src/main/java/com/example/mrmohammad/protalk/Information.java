@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-public class SettingsActivity extends AppCompatActivity {
+public class Information extends AppCompatActivity {
 
     Toolbar appBar;
 
@@ -16,6 +16,6 @@ public class SettingsActivity extends AppCompatActivity {
         appBar = findViewById(R.id.settings_appbar);
         setSupportActionBar(appBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Settings");
+        getSupportActionBar().setTitle("Information");
     }
 }

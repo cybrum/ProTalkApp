@@ -72,7 +72,7 @@ public class ProfileActivity extends AppCompatActivity{
 
                 String name = dataSnapshot.child("user_name").getValue().toString().trim();
                 String status = dataSnapshot.child("user_status").getValue().toString().trim();
-                String image = dataSnapshot.child("image").getValue().toString().trim();
+                String image = dataSnapshot.child("img").getValue().toString().trim();
                 String thumbnail =dataSnapshot.child("thumbnail").getValue().toString().trim();
 
                 displayName.setText(name);
@@ -149,7 +149,7 @@ public class ProfileActivity extends AppCompatActivity{
                             Toast.makeText(ProfileActivity.this, "Saving image to Database.", Toast.LENGTH_LONG).show();
 
                             String downloadUrl = task.getResult().getDownloadUrl().toString().trim();
-                            getUserDataReference.child("image").setValue(downloadUrl)
+                            getUserDataReference.child("img").setValue(downloadUrl)
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {

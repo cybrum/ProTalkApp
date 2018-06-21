@@ -90,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_profile_btn:
                 startActivity(new Intent(MainActivity.this, ProfileActivity.class));
                 break;
-            case R.id.menu_settings_btn:
-                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+            case R.id.menu_info_btn:
+                startActivity(new Intent(MainActivity.this, Information.class));
                 break;
 
             case R .id.menu_all_users_btn:

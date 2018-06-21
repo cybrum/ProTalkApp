@@ -97,7 +97,7 @@ public class RegisterActivity extends AppCompatActivity{
 
                                 storeUserDataReference.child("user_name").setValue(name);
                                 storeUserDataReference.child("user_status").setValue("Hey, I'm using ProTalk");
-                                storeUserDataReference.child("image").setValue("default_profile_image");
+                                storeUserDataReference.child("img").setValue("default_profile_image");
                                 storeUserDataReference.child("thumbnail").setValue("default_thumbnail")
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
