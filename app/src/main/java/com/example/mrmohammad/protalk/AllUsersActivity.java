@@ -45,12 +45,12 @@ public class AllUsersActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        FirebaseRecyclerAdapter<AllUsers,AllUsersViewHolder> firebaseRecyclerAdapter
+        FirebaseRecyclerAdapter<AllUsers, AllUsersViewHolder> firebaseRecyclerAdapter
                 = new FirebaseRecyclerAdapter<AllUsers, AllUsersViewHolder>(
-                        AllUsers.class,
-                        R.layout.all_users_display_layout,
-                        AllUsersViewHolder.class,
-                        dbReference
+                AllUsers.class,
+                R.layout.all_users_display_layout,
+                AllUsersViewHolder.class,
+                dbReference
         ) {
             @Override
             protected void populateViewHolder(AllUsersViewHolder viewHolder, AllUsers model, int position) {
@@ -66,7 +66,7 @@ public class AllUsersActivity extends AppCompatActivity {
     }
 
 
-    public static class AllUsersViewHolder extends RecyclerView.ViewHolder{
+    public static class AllUsersViewHolder extends RecyclerView.ViewHolder {
 
         View mView;
 
@@ -93,6 +93,6 @@ public class AllUsersActivity extends AppCompatActivity {
         }
 
 
-
     }
 }
+

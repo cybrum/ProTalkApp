@@ -1,5 +1,7 @@
 package com.example.mrmohammad.protalk;
 
+import android.content.Context;
+
 public class AllUsers {
 
     public String user_name;
