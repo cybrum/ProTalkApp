@@ -8,15 +8,20 @@ public class AllUsers {
     public String user_status;
     public String img;
 
+
+
+    public String thumbnail;
+
     public AllUsers(){
 
     }
 
 
-    public AllUsers(String user_name, String user_status, String img) {
+    public AllUsers(String user_name, String user_status, String img, String thumbnail) {
         this.user_name = user_name;
         this.user_status = user_status;
         this.img = img;
+        this.thumbnail = thumbnail;
     }
 
     public String getUser_name() {
@@ -41,6 +46,14 @@ public class AllUsers {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
     }
 
 

@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        disableAutoFill();
         appbar = findViewById(R.id.login_appbar);
         setSupportActionBar(appbar);
         getSupportActionBar().setTitle("Login");
@@ -68,6 +69,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void disableAutoFill() {
+
+        
     }
 
     private void loginUser(String email, String password) {

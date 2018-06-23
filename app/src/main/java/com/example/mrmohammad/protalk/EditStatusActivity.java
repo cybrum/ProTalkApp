@@ -75,7 +75,7 @@ public class EditStatusActivity extends AppCompatActivity {
                             if(task.isSuccessful()){
 
                                 loading.dismiss();
-                                startActivity(new Intent(EditStatusActivity.this, ProfileActivity.class));
+                                startActivity(new Intent(EditStatusActivity.this, CurrentProfileActivity.class));
                                 Toast.makeText(EditStatusActivity.this, "Status updated...", Toast.LENGTH_SHORT).show();
 
                             }else{

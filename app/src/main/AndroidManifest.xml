@@ -31,16 +31,19 @@
             android:name=".Information"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".CurrentProfileActivity"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
         <activity
             android:name=".EditStatusActivity"
-            android:parentActivityName=".ProfileActivity" />
-        <activity android:name=".AllUsersActivity"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".CurrentProfileActivity" />
+        <activity
+            android:name=".AllUsersActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".ProfileViewActivity"
+            android:parentActivityName=".AllUsersActivity"/>
     </application>
 
 </manifest>

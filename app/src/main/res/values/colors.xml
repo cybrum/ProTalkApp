@@ -8,6 +8,7 @@
     <color name="colorTransparent">#70000000</color>
     <color name="colorLightTransparent">#20000000</color>
     <color name="colorDarkTransparent">#95000000</color>
+    <color name="colorDarkMidTransparent">#30000000</color>
     <color name="colorWhite">#fff</color>
 
 </resources>

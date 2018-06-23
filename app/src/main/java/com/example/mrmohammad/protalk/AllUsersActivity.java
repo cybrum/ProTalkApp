@@ -1,5 +1,7 @@
 package com.example.mrmohammad.protalk;
 
+import android.content.Intent;
+import android.support.v4.widget.CircularProgressDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -53,11 +55,22 @@ public class AllUsersActivity extends AppCompatActivity {
                 dbReference
         ) {
             @Override
-            protected void populateViewHolder(AllUsersViewHolder viewHolder, AllUsers model, int position) {
+            protected void populateViewHolder(AllUsersViewHolder viewHolder, AllUsers model, final int position) {
 
                 viewHolder.setUser_name(model.getUser_name());
                 viewHolder.setUser_status(model.getUser_status());
-                viewHolder.setImg(model.getImg());
+                viewHolder.setThumbnail(model.getThumbnail());
+
+                viewHolder.mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        String profile_view_userId = getRef(position).getKey();
+                        Intent profileViewIntent = new Intent(AllUsersActivity.this, ProfileViewActivity.class);
+                        profileViewIntent.putExtra("profile_view_userId", profile_view_userId);
+                        startActivity(profileViewIntent);
+                    }
+                });
 
             }
         };
@@ -87,10 +100,12 @@ public class AllUsersActivity extends AppCompatActivity {
             status.setText(user_status);
         }
 
-        public void setImg(String img) {
+        public void setThumbnail(String thumb_img) {
             CircleImageView profilePic = mView.findViewById(R.id.all_users_profile_img);
-            Picasso.get().load(img).into(profilePic);
+            Picasso.get().load(thumb_img).placeholder(R.drawable.defaultimg).into(profilePic);
         }
+
+
 
 
     }
